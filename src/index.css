@@ -51,6 +51,7 @@
     --tool-rotate: 160 60% 42%;
     --tool-quality: 25 85% 55%;
     --tool-watermark: 200 65% 50%;
+    --tool-background: 280 70% 55%;
   }
 
   .dark {
@@ -97,6 +98,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom"; 
 import { lazy, Suspense } from "react";
 import AppLayout from "@/components/layout/AppLayout";
 
@@ -16,6 +16,7 @@ const RemoveBgTool = lazy(() => import("./pages/tools/RemoveBgTool"));
 const RotateTool = lazy(() => import("./pages/tools/RotateTool"));
 const QualityTool = lazy(() => import("./pages/tools/QualityTool"));
 const WatermarkTool = lazy(() => import("./pages/tools/WatermarkTool"));
+const BackgroundTool = lazy(() => import("./pages/tools/BackgroundTool"));
 
 const queryClient = new QueryClient();
 
@@ -30,7 +31,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <HashRouter basename="/mobile-pixie-magic">
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route element={<AppLayout />}>
@@ -43,11 +44,12 @@ const App = () => (
               <Route path="/rotate" element={<RotateTool />} />
               <Route path="/quality" element={<QualityTool />} />
               <Route path="/watermark" element={<WatermarkTool />} />
+              <Route path="/background" element={<BackgroundTool />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

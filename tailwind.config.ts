@@ -66,6 +66,7 @@ export default {
           rotate: "hsl(var(--tool-rotate))",
           quality: "hsl(var(--tool-quality))",
           watermark: "hsl(var(--tool-watermark))",
+          background: "hsl(var(--tool-background))",
         },
       },
       borderRadius: {

@@ -7,6 +7,7 @@ import {
   RotateCw,
   SlidersHorizontal,
   Droplets,
+  Palette,
   type LucideIcon,
 } from "lucide-react";
 
@@ -83,5 +84,13 @@ export const tools: ToolConfig[] = [
     path: "/watermark",
     icon: Droplets,
     colorVar: "tool-watermark",
+  },
+  {
+    id: "background",
+    name: "Change Background",
+    description: "Add color or pattern background",
+    path: "/background",
+    icon: Palette,
+    colorVar: "tool-background",
   },
 ];
