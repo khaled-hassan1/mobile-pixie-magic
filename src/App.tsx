@@ -31,11 +31,15 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <HashRouter basename="/mobile-pixie-magic">
+      {/* حذفنا الـ basename هنا لأنه بيسبب مشاكل مع HashRouter في بعض إصدارات Vite */}
+      <HashRouter>
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route element={<AppLayout />}>
+              {/* السطرين دول مع بعض هيحلوا مشكلة الـ 404 اللي بتظهر أول ما تفتح */}
               <Route path="/" element={<Index />} />
+              <Route path="/mobile-pixie-magic" element={<Index />} />
+              
               <Route path="/compress" element={<CompressTool />} />
               <Route path="/resize" element={<ResizeTool />} />
               <Route path="/crop" element={<CropTool />} />
@@ -45,6 +49,8 @@ const App = () => (
               <Route path="/quality" element={<QualityTool />} />
               <Route path="/watermark" element={<WatermarkTool />} />
               <Route path="/background" element={<BackgroundTool />} />
+              
+              {/* أي مسار غير معرف يروح للـ NotFound */}
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
